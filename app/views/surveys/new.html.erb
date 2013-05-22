@@ -1,0 +1,41 @@
+<h2>Create a Survey</h2>
+  <div>
+    <%= form_for @survey do |survey_form| %>
+      <%= survey_form.label "Survey Name" %><br>
+      <%= survey_form.text_field :name %>
+  </div>
+
+    <%= survey_form.fields_for :questions do |question_form| %>
+      <div>
+        <%= question_form.label "Question" %><br>
+        <%= question_form.text_field :body %>
+      </div>
+
+        <%= question_form.fields_for :options do |option_form| %>
+          <div>
+            <%= option_form.label "Option" %><br>
+            <%= option_form.text_field :body %>
+          </div>
+        <% end %>
+
+        <%= question_form.fields_for :options do |option_form| %>
+          <div>
+            <%= option_form.label "Option" %><br>
+            <%= option_form.text_field :body %>
+          </div>
+        <% end %>
+    <% end %>
+
+    <br><hr><br>
+
+    <%= survey_form.fields_for :questions do |question_form| %>
+      <div>
+        <%= question_form.label "Question" %><br>
+        <%= question_form.text_field :body %>
+      </div>
+    <% end %>
+
+  <%= survey_form.submit %>
+<% end %>
+
+

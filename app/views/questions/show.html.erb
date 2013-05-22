@@ -1,0 +1,6 @@
+<h2>Question:<%= @question.body  %></h2>
+
+<% @question.options.each do |option| %>
+  <p>Option: <%= option.body %> Count: <%= option.responses.count %></p>
+<% end %>
+

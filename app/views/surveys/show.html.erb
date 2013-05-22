@@ -1,0 +1,17 @@
+<h2>Survey: <%= @survey.name %></h2>
+    <% @survey.questions.each do |question| %>
+    
+    <h4>Question: <%= question.body %></h4>
+      <ul>
+        <%= form_for @response do |response_form| %>
+          <%= response_form.hidden_field :question_id, value: question.id %>
+
+         <% question.options.each do |option| %>
+          <li><%= response_form.radio_button(:option_id, option.id) %><%= option.body %></li>
+        <% end %>
+
+      <%= response_form.submit "Next" %>
+      </ul>
+    <% end %>
+
+<% end %>
